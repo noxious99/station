@@ -20,6 +20,7 @@ function Navbar() {
           <Link to="/menu"> Menu </Link>
           <Link to="/about"> About </Link>
           <Link to="/Login"> Login </Link>
+          <Link to="/Profile"> My Profile </Link>
         </div>
       </div>
       <div className="rightSide">
@@ -27,6 +28,7 @@ function Navbar() {
         <Link to="/menu"> Menu </Link>
         <Link to="/about"> About </Link>
         <Link to="/Login"> Login </Link>
+        <Link to="/Profile"> My Profile </Link>
         <button onClick={toggleNavbar}>
         < FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
         </button>

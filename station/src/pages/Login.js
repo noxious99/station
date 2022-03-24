@@ -1,30 +1,32 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import "../styles/login.css";
-import axios from "axios"
+import axios from "axios";
 
-function Login() {
+const Login = ({ updateUser}) => {
 
   const [ user, setUser] = useState({
-    email:"",
-    password:"",
-})
-
-const handleChange = e => {
-    console.log(e.target)
-    const { name, value } = e.target
-    setUser({
-        ...user,
-        [name]: value
-    })
-}
-
-const login = () => {
-  axios.post("http://localhost:9002/login", user)
-  .then(res => {
-      alert(res.data.message)
+      email:"",
+      password:""
   })
-}
+
+  const handleChange = e => {
+      const { name, value } = e.target
+      setUser({
+          ...user,
+          [name]: value
+      })
+  }
+
+  const login = () => {
+      axios.post("http://localhost:9002/login", user)
+      .then(res => {
+          alert(res.data.message)
+          updateUser(res.data.user)
+          useHistory.push("/")
+      })
+  }
+
   
   return (
     <div className='center'>
